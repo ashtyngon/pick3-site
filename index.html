@@ -41,21 +41,9 @@ h1 .three{font-family:'Literata',serif;font-style:italic;font-weight:500;color:v
  padding:13px 24px;border-radius:14px;text-decoration:none;font-weight:600;font-size:16px}
 .appstore small{display:block;font-weight:400;font-size:11px;opacity:.75;line-height:1}
 .hero-note{font-size:13.5px;color:var(--faint);margin-top:14px}
-.hero-shots{display:flex;gap:18px;justify-content:center;align-items:flex-end;padding:26px 0 56px}
-/* iPhone 16 Pro Max chrome */
-.device{position:relative;width:min(214px,24vw);border-radius:11.5%/5.4%;
- background:linear-gradient(145deg,#5a5a5e 0%,#2c2c2f 22%,#1c1c1f 60%,#3b3b3f 100%);
- padding:2.4%;box-shadow:0 30px 70px rgba(79,70,60,.32)}
-.device .screen{position:relative;border-radius:9.8%/4.6%;overflow:hidden;background:#000;
- box-shadow:inset 0 0 0 3px #000}
-.device .screen img{display:block;width:100%}
-.device .screen::after{content:"";position:absolute;top:2.2%;left:50%;transform:translateX(-50%);
- width:26%;height:2.55%;background:#050505;border-radius:999px}
-.device i{position:absolute;background:linear-gradient(90deg,#48484c,#202023);border-radius:2px}
-.device .b-act{left:-1.4%;top:18%;width:1.6%;height:4.5%}
-.device .b-vup{left:-1.4%;top:26.5%;width:1.6%;height:8%}
-.device .b-vdn{left:-1.4%;top:36%;width:1.6%;height:8%}
-.device .b-pwr{right:-1.4%;top:28%;width:1.6%;height:12%}
+.hero-shots{display:flex;gap:14px;justify-content:center;align-items:flex-end;padding:26px 0 56px}
+/* Official Apple iPhone 16 Pro Max bezels (composited PNGs) */
+.hero-shots img{width:min(225px,25vw);filter:drop-shadow(0 26px 50px rgba(79,70,60,.30))}
 
 /* Ritual */
 .ritual{padding:96px 0 84px;background:var(--bg-deep)}
@@ -132,15 +120,9 @@ footer a{color:var(--muted);text-decoration:none;margin-left:18px}
         <p class="hero-note">Free for your first 15 completed tasks. No account. No ads. Ever.</p>
       </div>
       <div class="hero-shots">
-        <div class="device"><i class="b-act"></i><i class="b-vup"></i><i class="b-vdn"></i><i class="b-pwr"></i>
-          <div class="screen"><img src="assets/03-capture-sheet.png" alt="Pick Three capture sheet — dump everything on your mind"></div>
-        </div>
-        <div class="device"><i class="b-act"></i><i class="b-vup"></i><i class="b-vdn"></i><i class="b-pwr"></i>
-          <div class="screen"><img src="assets/02-today-progress.png" alt="Pick Three Today screen with three task slots"></div>
-        </div>
-        <div class="device"><i class="b-act"></i><i class="b-vup"></i><i class="b-vdn"></i><i class="b-pwr"></i>
-          <div class="screen"><img src="assets/05-focus-running.png" alt="Pick Three focus timer — a draining honey disc"></div>
-        </div>
+        <img src="assets/mock-capture.png" alt="Pick Three on iPhone 16 Pro Max — capture sheet, dump everything on your mind">
+        <img src="assets/mock-today.png" alt="Pick Three on iPhone 16 Pro Max — Today screen with three task slots">
+        <img src="assets/mock-focus.png" alt="Pick Three on iPhone 16 Pro Max — focus timer, a draining honey disc">
       </div>
     </div>
   </div>
@@ -186,9 +168,7 @@ footer a{color:var(--muted);text-decoration:none;margin-left:18px}
         <div><span>✓</span> An optional mood note after each focus session</div>
       </div>
     </div>
-    <div class="device" style="width:min(280px,66vw);justify-self:center"><i class="b-act"></i><i class="b-vup"></i><i class="b-vdn"></i><i class="b-pwr"></i>
-      <div class="screen"><img src="assets/07-done-archive.png" alt="Pick Three Done screen — your week count and finished tasks"></div>
-    </div>
+    <img src="assets/mock-done.png" style="width:min(300px,70vw);justify-self:center;filter:drop-shadow(0 26px 60px rgba(0,0,0,.55))" alt="Pick Three on iPhone 16 Pro Max — Done screen with your week count">
   </div>
 </section>
 
