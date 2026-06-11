@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pick Three — Dump everything. Pick three. Get it done.</title>
+<meta name="description" content="The ADHD-friendly to-do list. Dump every thought into the pile, pick just three tasks for today, and start a timer you can actually see. No overdue flags, no streaks, no guilt.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<meta property="og:title" content="Pick Three — the ADHD-friendly to-do list">
+<meta property="og:description" content="Dump everything. Pick three. Get it done — with a timer you can actually see.">
+<meta property="og:image" content="https://pick3.xyz/assets/01-pano-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F3EE; --bg-deep:#F0ECE6; --ink:#1E1914; --body:#4A4239; --muted:#7A7164;
+  --faint:#9A9183; --honey:#E2A93F; --honey-deep:#C48A2F; --honey-text:#A36B1A;
+  --honey-tint:#FBE9C6; --card:#FCFAF7; --line:#E5DFD5; --dark:#140F0C; --dark-2:#1C1612;
+  --sage:#7D9E78; --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Literata',serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:
+ radial-gradient(120% 85% at 85% -10%, var(--honey-tint) 0%, transparent 55%), var(--bg)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.brand img{width:40px;height:40px;border-radius:10px}
+.nav a.cta{background:var(--ink);color:var(--bg);padding:10px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:48px 0 0}
+h1{font-size:clamp(38px,5.4vw,58px);line-height:1.08;letter-spacing:-.02em;font-weight:700}
+h1 .three{font-family:'Literata',serif;font-style:italic;font-weight:500;color:var(--honey-text)}
+.hero p.lede{font-size:19px;color:var(--body);margin:22px 0 30px;max-width:46ch}
+.store-btns{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.appstore{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);
+ padding:13px 24px;border-radius:14px;text-decoration:none;font-weight:600;font-size:16px}
+.appstore small{display:block;font-weight:400;font-size:11px;opacity:.75;line-height:1}
+.hero-note{font-size:13.5px;color:var(--faint);margin-top:14px}
+.hero-shots{display:flex;gap:18px;justify-content:center;padding-bottom:0;transform:translateY(34px)}
+.hero-shots img{width:min(250px,30vw);border-radius:26px;box-shadow:0 24px 60px rgba(79,70,60,.28)}
+.hero-shots img:nth-child(2){transform:translateY(-26px)}
+
+/* Ritual */
+.ritual{padding:96px 0 84px;background:var(--bg-deep)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--honey-text)}
+h2{font-size:clamp(30px,4vw,42px);letter-spacing:-.02em;line-height:1.12;margin:10px 0 14px}
+.sub{color:var(--muted);font-size:17.5px;max-width:58ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px}
+.step .num{font-family:'Literata',serif;font-size:34px;color:var(--honey-deep);font-weight:500}
+.step h3{font-size:20px;margin:12px 0 8px;letter-spacing:-.01em}
+.step p{color:var(--body);font-size:15.5px}
+
+/* Features */
+.features{padding:96px 0}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.f h3{font-size:17.5px;margin-bottom:7px;letter-spacing:-.01em}
+.f p{color:var(--body);font-size:14.8px}
+.f .dot{width:34px;height:34px;border-radius:999px;background:var(--honey-tint);display:flex;
+ align-items:center;justify-content:center;margin-bottom:14px;font-size:16px}
+
+/* Dark band */
+.dark-band{background:var(--dark);color:#F4EFE7;padding:96px 0}
+.dark-band .kicker{color:var(--honey)}
+.dark-grid{display:grid;grid-template-columns:1fr .8fr;gap:56px;align-items:center}
+.dark-band h2{color:#FCFAF7}
+.dark-band .sub{color:#B5AB9C}
+.dark-band img{width:min(290px,70vw);border-radius:26px;box-shadow:0 24px 70px rgba(0,0,0,.5);justify-self:center}
+.dark-list{margin-top:26px;display:grid;gap:14px}
+.dark-list div{display:flex;gap:12px;font-size:16px;color:#D8D0C2}
+.dark-list span{color:var(--honey)}
+
+/* Pricing */
+.pricing{padding:96px 0;background:var(--bg-deep)}
+.price-card{background:var(--card);border:1px solid var(--line);border-radius:28px;max-width:560px;
+ margin:44px auto 0;padding:38px 40px;text-align:center}
+.price-card .serif{font-size:21px}
+.price-row{display:flex;justify-content:center;gap:26px;margin:22px 0 8px;flex-wrap:wrap}
+.price-row b{font-size:19px}
+.price-row small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.price-note{color:var(--faint);font-size:13.5px;margin-top:14px}
+
+/* CTA */
+.cta-band{padding:110px 0;text-align:center;background:
+ radial-gradient(120% 100% at 50% 120%, var(--honey-tint) 0%, transparent 60%), var(--bg)}
+.cta-band h2{margin-bottom:26px}
+
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--faint);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;margin-left:18px}
+
+@media (max-width:860px){
+  .hero-grid,.dark-grid{grid-template-columns:1fr}
+  .steps,.fgrid{grid-template-columns:1fr}
+  .hero-shots{transform:none;padding-bottom:40px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand"><img src="assets/icon.png" alt="Pick Three icon">Pick&nbsp;<span class="serif" style="font-style:italic;color:var(--honey-text)">Three</span></div>
+      <a class="cta" href="#download">Get the app</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <h1>Dump everything.<br>Pick <span class="three">three</span>.<br>Get it done.</h1>
+        <p class="lede">The ADHD-friendly to-do list. Throw every loose thought into the pile, choose just three tasks for today, and start a timer you can actually see — in one tap.</p>
+        <div class="store-btns" id="download">
+          <a class="appstore" href="https://apps.apple.com/app/id6778973085"> <small>Download on the</small>&nbsp;App Store</a>
+        </div>
+        <p class="hero-note">Free for your first 15 completed tasks. No account. No ads. Ever.</p>
+      </div>
+      <div class="hero-shots">
+        <img src="assets/02-today-progress.png" alt="Pick Three Today screen with three task slots">
+        <img src="assets/05-focus-running.png" alt="Pick Three focus timer — a draining honey disc">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="ritual">
+  <div class="wrap">
+    <div class="kicker">One morning ritual</div>
+    <h2>Three slots. That's the whole app.</h2>
+    <p class="sub">Pick Three is built around one idea: your brain doesn't need a better database — it needs fewer decisions.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Dump everything</h3><p>One text field, zero friction. Big, small, vague, half-formed — it all goes in the pile, and capturing is free forever.</p></div>
+      <div class="step"><div class="num">2</div><h3>Pick just three</h3><p>Not five, not seventeen. Three slots are the whole home screen — picking them is the only planning you'll do today.</p></div>
+      <div class="step"><div class="num">3</div><h3>Start the timer</h3><p>Tap a task and time starts draining as a solid disc you can see at a glance — the way ADHD brains actually feel time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="kicker">Forgiveness by design</div>
+    <h2>No overdue. No streaks. No guilt.</h2>
+    <div class="fgrid">
+      <div class="f"><div class="dot">🌅</div><h3>Every morning starts clean</h3><p>Anything unfinished quietly returns to the pile at midnight. There is no red, no overdue state — that's a feature, not a bug.</p></div>
+      <div class="f"><div class="dot">⏳</div><h3>Time you can see</h3><p>A solid disc drains as minutes pass. Run over? It gently counts up — "still going" — never an alarm.</p></div>
+      <div class="f"><div class="dot">🪶</div><h3>Drifting is human</h3><p>One judgment-free button when you lose the thread: resume five minutes, take a break, or be done for now.</p></div>
+      <div class="f"><div class="dot">🎉</div><h3>Done feels like something</h3><p>Finishing a task earns a short, genuinely loud celebration — the only loud moment in the app.</p></div>
+      <div class="f"><div class="dot">📱</div><h3>On your lock screen</h3><p>Widgets and a Live Activity keep the running timer on your lock screen, in the Dynamic Island, and in StandBy.</p></div>
+      <div class="f"><div class="dot">🔒</div><h3>Yours alone</h3><p>Tasks live on your device and sync through your own iCloud. No account, no sign-up, nothing collected.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-band">
+  <div class="wrap dark-grid">
+    <div>
+      <div class="kicker">Evidence, not statistics</div>
+      <h2>One number. No charts.</h2>
+      <p class="sub">The Done screen shows how many things you finished this week — quiet proof that you're a human being capable of getting things done.</p>
+      <div class="dark-list">
+        <div><span>✓</span> A rolling week count that only ever adds up</div>
+        <div><span>✓</span> Your finished tasks, grouped by day</div>
+        <div><span>✓</span> An optional mood note after each focus session</div>
+      </div>
+    </div>
+    <img src="assets/03-pano-3.png" alt="Pick Three focus timer in dark mode">
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="wrap">
+    <div class="kicker">Simple pricing</div>
+    <h2>Free until fifteen done.</h2>
+    <p class="sub">Try the whole app, complete fifteen real tasks, and only then decide. Capturing and your pile stay free, always.</p>
+    <div class="price-card">
+      <div class="serif" style="font-style:italic">Pick Three Plus</div>
+      <div class="price-row">
+        <div><b>Monthly</b><small>after a free first week</small></div>
+        <div><b>Yearly</b><small>about a third of monthly</small></div>
+        <div><b>Lifetime</b><small>pay once, keep forever</small></div>
+      </div>
+      <p class="price-note">Prices shown in the App Store in your local currency.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Today only needs <span class="serif" style="font-style:italic;color:var(--honey-text)">three</span>.</h2>
+    <a class="appstore" href="https://apps.apple.com/app/id6778973085"><small>Download on the</small>&nbsp;App Store</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Pick Three</div>
+    <div>
+      <a href="mailto:support@pick3.xyz">support@pick3.xyz</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
