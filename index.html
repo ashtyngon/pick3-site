@@ -41,9 +41,9 @@ h1 .three{font-family:'Literata',serif;font-style:italic;font-weight:500;color:v
  padding:13px 24px;border-radius:14px;text-decoration:none;font-weight:600;font-size:16px}
 .appstore small{display:block;font-weight:400;font-size:11px;opacity:.75;line-height:1}
 .hero-note{font-size:13.5px;color:var(--faint);margin-top:14px}
-.hero-shots{display:flex;gap:18px;justify-content:center;padding-bottom:0;transform:translateY(34px)}
+.hero-shots{display:flex;gap:18px;justify-content:center;align-items:flex-end;padding:26px 0 56px}
 .hero-shots img{width:min(250px,30vw);border-radius:26px;box-shadow:0 24px 60px rgba(79,70,60,.28)}
-.hero-shots img:nth-child(2){transform:translateY(-26px)}
+.hero-shots img:nth-child(2){margin-bottom:26px}
 
 /* Ritual */
 .ritual{padding:96px 0 84px;background:var(--bg-deep)}
@@ -98,7 +98,7 @@ footer a{color:var(--muted);text-decoration:none;margin-left:18px}
 @media (max-width:860px){
   .hero-grid,.dark-grid{grid-template-columns:1fr}
   .steps,.fgrid{grid-template-columns:1fr}
-  .hero-shots{transform:none;padding-bottom:40px}
+  .hero-shots{padding:10px 0 40px}
 }
 </style>
 </head>
